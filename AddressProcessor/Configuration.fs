@@ -35,7 +35,7 @@ module Configuration =
 
 
     [<Literal>]
-    let ZipStateZipFileName = "Swyfft.Services.AddressProcessor.ZipState.zip"
+    let ZipStateZipFileName = "Softellect.AddressProcessor.ZipState.zip"
 
 
     let doLog (logger : (string -> unit)) (message : string) : unit =
