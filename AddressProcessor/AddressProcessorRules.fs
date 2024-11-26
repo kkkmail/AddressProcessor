@@ -20,8 +20,6 @@ open TryInferRules
 open IfStreetNotFoundRules
 open IfCityNotFoundRules
 open MatchParams
-//open Swyfft.Common.Interfaces
-//open Swyfft.Common.SetDefinitions.CommonSets
 open DynamicSql
 
 open Microsoft.Data.SqlClient
@@ -291,8 +289,8 @@ module AddressProcessorRules =
         |> seqToString
 
 
-    let getProjectedStreetLineImpl street = street |> cleanStreetLine
-    let getProjectedCityImpl city = city |> cleanCity
+    //let getProjectedStreetLineImpl street = street |> cleanStreetLine
+    //let getProjectedCityImpl city = city |> cleanCity
 
 
     let loadAddressKey (getCoreConn : unit -> SqlConnection) a b =
@@ -395,6 +393,7 @@ module AddressProcessorRules =
                 | None -> false, EmptyString
 
         let hasAddressInferenceType, addressInferenceType =
+            let x = streetNameOrTypeWeight
             match i.request.ParseParams.OutputParams.GetAddressInferenceType with
             | false -> false, AddrInferenceType.None
             | true ->

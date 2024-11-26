@@ -4,12 +4,19 @@ open System
 open Dictionaries
 open UnionFactories
 open StringParser
-open Swyfft.Common.SetDefinitions.CommonSets
 
 module AddressTypes =
 
     [<Literal>]
     let DefaultSuiteName = "#"
+
+
+    type AddrInferenceType =
+        | None = 0
+        | ExplicitAddress = 1
+        | ImplicitEvenOrOddAddress = 2
+        | ImplicitAllAddress = 3
+        | ImplicitErrAddress = 4
 
 
     /// Returns the norm of the list of weighted words.
@@ -439,8 +446,8 @@ module AddressTypes =
         }
 
 
-    /// Type to describe if the address was in the original full addres string
-    /// or it was added (= infered) when ranges where expanded.
+    /// Type to describe if the address was in the original full address string
+    /// or it was added (= inferred) when ranges where expanded.
     type AddressInferenceType =
         | ExplicitAddress // The address was present in the original address string and was found with minimal guessing, e.g. "202-208" -> [ "202"; "208" ]
         | ImplicitEvenOrOddAddress // The address comes from the middle of even-even or odd-odd ranges, e.g. "202-208" -> [ "204"; "206" ]

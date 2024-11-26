@@ -8,7 +8,6 @@ open System.Collections
 open System.Collections.Generic
 open FSharpx
 open FSharpx.Collections
-open Swyfft.Services.AddressProcessor
 
 // Ported from http://hackage.haskell.org/packages/archive/bktrees/latest/doc/html/src/Data-Set-BKTree.html
 

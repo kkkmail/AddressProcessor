@@ -5,7 +5,6 @@ open AddressTypes
 open DataParsing
 open Extensions
 open StringParser
-open Swyfft.Services.AddressProcessor
 open MetricTreeInterop
 
 /// kk:20200211 - Do not remove commented out code here. It is used to swith between MetricListMap and ProjectedMap.

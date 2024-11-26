@@ -3,8 +3,8 @@
 open Configuration
 open AddressTypes
 open Errors
-open Swyfft.Common.SetDefinitions.CommonSets
-open Swyfft.Common.Rop
+// open Swyfft.Common.SetDefinitions.CommonSets
+// open Swyfft.Common.Rop
 open DataParsing
 
 open Microsoft.Data.SqlClient
@@ -16,23 +16,23 @@ module CSharpInterop =
     let Unit = ()
 
 
-    let toSwyfftResult<'T> (x : ApResult<'T>) =
-        match x with
-        | Ok v -> SwyfftResult<'T>.ToSwyfftResult(v)
-        | Error e -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure $"%A{e}")
-
-
-    let toOptSwyfftResult<'T> (x : ApResult<'T option>) =
-        match x with
-        | Ok (Some v) -> SwyfftResult<'T>.ToSwyfftResult(v)
-        | Ok None -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure ("Unable to load data."))
-        | Error e -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure $"%A{e}")
-
-
-    let toUnitSwyfftResult x =
-        match x with
-        | Ok() -> SwyfftResult.NotNeeded
-        | Error e -> SwyfftResult.ToSwyfftResult(SwyfftFailure $"%A{e}")
+    // let toSwyfftResult<'T> (x : ApResult<'T>) =
+    //     match x with
+    //     | Ok v -> SwyfftResult<'T>.ToSwyfftResult(v)
+    //     | Error e -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure $"%A{e}")
+    //
+    //
+    // let toOptSwyfftResult<'T> (x : ApResult<'T option>) =
+    //     match x with
+    //     | Ok (Some v) -> SwyfftResult<'T>.ToSwyfftResult(v)
+    //     | Ok None -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure ("Unable to load data."))
+    //     | Error e -> SwyfftResult<'T>.ToSwyfftResult(SwyfftFailure $"%A{e}")
+    //
+    //
+    // let toUnitSwyfftResult x =
+    //     match x with
+    //     | Ok() -> SwyfftResult.NotNeeded
+    //     | Error e -> SwyfftResult.ToSwyfftResult(SwyfftFailure $"%A{e}")
 
 
     type AddressProcessorResultError =
@@ -193,17 +193,17 @@ module CSharpInterop =
             }
 
 
-    /// Loads QuoteProperty Validator settings.
-    let loadQuotePropertyValidatorProcessorSetting getRatingConn =
-        tryLoadSetting<QuotePropertyValidatorSetting> SettingId.quotePropertyValidatorSettingId SettingVersion.quotePropertyValidatorSettingVersion (RatingConnectionGetter getRatingConn)
-        |> toOptSwyfftResult
-
-
-    /// Upserts QuoteProperty Validator settings.
-    let upsertQuotePropertyValidatorSetting (getRatingConn, q) =
-        tryUpsertSetting<QuotePropertyValidatorSetting> SettingId.quotePropertyValidatorSettingId SettingVersion.quotePropertyValidatorSettingVersion (RatingConnectionGetter getRatingConn) q
-        |> toUnitSwyfftResult
-
-
-    /// Gets the max value of QuotePropertyId.
-    let getMaxQuotePropertyId c = getMaxQuotePropertyId c |> toSwyfftResult
+    // /// Loads QuoteProperty Validator settings.
+    // let loadQuotePropertyValidatorProcessorSetting getRatingConn =
+    //     tryLoadSetting<QuotePropertyValidatorSetting> SettingId.quotePropertyValidatorSettingId SettingVersion.quotePropertyValidatorSettingVersion (RatingConnectionGetter getRatingConn)
+    //     |> toOptSwyfftResult
+    //
+    //
+    // /// Upserts QuoteProperty Validator settings.
+    // let upsertQuotePropertyValidatorSetting (getRatingConn, q) =
+    //     tryUpsertSetting<QuotePropertyValidatorSetting> SettingId.quotePropertyValidatorSettingId SettingVersion.quotePropertyValidatorSettingVersion (RatingConnectionGetter getRatingConn) q
+    //     |> toUnitSwyfftResult
+    //
+    //
+    // /// Gets the max value of QuotePropertyId.
+    // let getMaxQuotePropertyId c = getMaxQuotePropertyId c |> toSwyfftResult
