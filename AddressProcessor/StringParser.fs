@@ -5,7 +5,6 @@ open System.Text.RegularExpressions
 open System.Reflection
 open Microsoft.FSharp.Reflection
 open Configuration
-open FSharpx.Collections
 
 module StringParser =
 
