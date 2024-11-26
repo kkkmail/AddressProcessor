@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <AssemblyName>Softellect.AddressProcessor</AssemblyName>
+        <RootNamespace>Softellect.AddressProcessor</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Konstantin Konstantinov</Authors>
+        <Company>Softellect Systems, Inc.</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>9.0.100.2</Version>
+        <PackageVersion>9.0.100.2</PackageVersion>
+        <Description>Softellect Address Processor Library provides some parsing of US addresses not available in other packages.</Description>
+        <PackageTags>address;parsing;</PackageTags>
+        <RepositoryUrl>https://github.com/kkkmail/AddressProcessor</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/kkkmail/AddressProcessor/tree/master/AddressProcessor</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>TRACE;DEBUG;LOCAL;NONPROD</DefineConstants>
+        <NoWarn>NU1701</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>RELEASE</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Link="README.md" Pack="true" PackagePath="\">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Compile Include="IntMap.fs" />
+        <Compile Include="BKTree.fs" />
+        <Compile Include="MetricTreeInterop.fs" />
+        <Compile Include="Configuration.fs" />
+        <Compile Include="Errors.fs" />
+        <Compile Include="Retry.fs" />
+        <Compile Include="FSharpFuncUtil.fs" />
+        <Compile Include="StringParser.fs" />
+        <Compile Include="UnionFactory.fs" />
+        <Compile Include="DatabaseTypes.fs" />
+        <Compile Include="DynamicSql.fs" />
+        <Compile Include="UsState.fs" />
+        <Compile Include="State.fs" />
+        <Compile Include="DirectionAbbr.fs" />
+        <Compile Include="StreetAbbr.fs" />
+        <Compile Include="SuiteName.fs" />
+        <Compile Include="UnionFactories.fs" />
+        <Compile Include="DataUpdater.fs" />
+        <Compile Include="DataUtilities.fs" />
+        <Compile Include="Dictionaries.fs" />
+        <Compile Include="AddressTypes.fs" />
+        <Compile Include="Extensions.fs" />
+        <Compile Include="DataParsing.fs" />
+        <Compile Include="CSharpInterop.fs" />
+        <Compile Include="DynamicData.fs" />
+        <Compile Include="MatchParams.fs" />
+        <Compile Include="QuotePropertyParser.fs" />
+        <Compile Include="MatchTypes.fs" />
+        <Compile Include="MatchFunctions.fs" />
+        <Compile Include="MatchingRules.fs" />
+        <Compile Include="NewAddressRules.fs" />
+        <Compile Include="StreetNameRules.fs" />
+        <Compile Include="HouseNumberRules.fs" />
+        <Compile Include="UnitNumberRules.fs" />
+        <Compile Include="CityRules.fs" />
+        <Compile Include="StateRules.fs" />
+        <Compile Include="ZipCodeRules.fs" />
+        <Compile Include="TryInferRules.fs" />
+        <Compile Include="IfStreetNotFoundRules.fs" />
+        <Compile Include="IfCityNotFoundRules.fs" />
+        <Compile Include="AddressProcessorRules.fs" />
+        <Compile Include="AddressProcessor.fs" />
+        <Compile Include="AddressProjector.fs" />
+        <Compile Include="AddressDataConfiguration.fs" />
+        <Compile Include="AddressDataDataTypes.fs" />
+        <Compile Include="AddressDataRules.fs" />
+        <Compile Include="AddressDataUtilities.fs" />
+        <Compile Include="AddressDataProcessing.fs" />
+        <Compile Include="OpenAddressDataTypes.fs" />
+        <Compile Include="RawOpenAddressProcessing.fs" />
+        <Compile Include="QuotePropertyProcessorRules.fs" />
+        <Compile Include="QuotePropertyProcessor.fs" />
+        <Compile Include="ProcessAddresses.fs" />
+        <None Include="ProcessRawOpenAddr.fsx" />
+        <None Include="ProcessOpenAddr.fsx" />
+        <None Include="RunCommercialAddresses__IL.fsx" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="..\Data\ZipState.zip" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CsvHelper" Version="33.0.1" />
+        <PackageReference Include="FSharp.Collections.ParallelSeq" Version="1.2.0" />
+        <PackageReference Include="FSharp.Data" Version="6.4.0" />
+        <PackageReference Include="FSharpx.Collections" Version="3.1.0" />
+        <PackageReference Include="FSharpx.Collections.Experimental" Version="3.1.0" />
+        <PackageReference Include="FSharpx.Core" Version="1.8.32" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Update="FSharp.Core" Version="9.0.100" />
+    </ItemGroup>
+
+</Project>
