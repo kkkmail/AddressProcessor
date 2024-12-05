@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AddressProcessor", "AddressProcessor\AddressProcessor.fsproj", "{3F00E64C-D9C8-4063-9EDC-DBBDDC8EE61B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AddressProcessorTests", "AddressProcessorTests\AddressProcessorTests.fsproj", "{D1537F39-E5F0-415A-9BF1-CABDF43AD670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,16 @@ Global
 		{3F00E64C-D9C8-4063-9EDC-DBBDDC8EE61B}.Development|Any CPU.Build.0 = Development|Any CPU
 		{3F00E64C-D9C8-4063-9EDC-DBBDDC8EE61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F00E64C-D9C8-4063-9EDC-DBBDDC8EE61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Demo|Any CPU.ActiveCfg = Demo|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Demo|Any CPU.Build.0 = Demo|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Development|Any CPU.Build.0 = Development|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1537F39-E5F0-415A-9BF1-CABDF43AD670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
