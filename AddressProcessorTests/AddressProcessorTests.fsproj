@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <GenerateProgramFile>false</GenerateProgramFile>
+        <OutputType>Library</OutputType>
+        <RootNamespace>Softellect.AddressProcessorTests</RootNamespace>
+        <AssemblyName>Softellect.AddressProcessorTests</AssemblyName>
+        <Configurations>Debug;Release;Beta;Demo;Development</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>TRACE;DEBUG;LOCAL;NONPROD</DefineConstants>
+        <NoWarn>NU1701;FS0988</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>RELEASE</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Primitives.fs" />
+        <Compile Include="AddressTypesTests.fs" />
+        <Compile Include="AddressProcessorTests.fs" />
+        <Compile Include="DynamicDataTests.fs" />
+        <Compile Include="StringParserTests.fs" />
+        <Compile Include="TreeTestData.fs" />
+        <Compile Include="TreeTests.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.msbuild" Version="6.0.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="FluentAssertions" Version="7.0.0" />
+        <PackageReference Include="FsPickler" Version="5.3.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="xunit" Version="2.9.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.2">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Update="FSharp.Core" Version="9.0.100" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AddressProcessor\AddressProcessor.fsproj" />
+    </ItemGroup>
+
+</Project>

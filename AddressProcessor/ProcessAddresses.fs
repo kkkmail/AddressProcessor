@@ -1,6 +1,6 @@
 ﻿namespace Softellect.AddressProcessor
 
-//open Swyfft.Services.AddressProcessor
+//open Softellect.AddressProcessor
 open CSharpInterop
 
 open Microsoft.Data.SqlClient
