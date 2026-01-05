@@ -1,7 +1,9 @@
 ﻿namespace Softellect.AddressProcessor
 
 open System
-open FSharpx.Collections
+
+// open FSharpx.Collections
+
 
 /// Collection of type aliases / functions to simplify dealing with metric trees in a unified and implementation independent manner.
 /// Don't use any of implementation dependent code.
@@ -42,8 +44,10 @@ module MetricTreeInterop =
     /// Calculates normalized distance between two byte strings.
     let normalizedDistance a b =
         let d = distance a b
-        let m = a.Count
-        let n = b.Count
+        // let m = a.Count
+        // let n = b.Count
+        let m = a.Length
+        let n = b.Length
         let norm = max (sqrt (((float m) * (float m) + (float n) * (float n)) / 2.0)) 1.0
         let r = (float d) / norm
         r
@@ -60,13 +64,13 @@ module MetricTreeInterop =
         member a.normalizedDistance (b : string) = (toByteString a, toByteString b) ||> normalizedDistance
 
 
-    type ByteString
-        with
-
-        /// Calculates the distance from ByteString to a given string.
-        member a.distance (b : string) = (a, toByteString b) ||> distance
-
-        member a.normalizedDistance (b : string) = (a, toByteString b) ||> normalizedDistance
+    // type ByteString
+    //     with
+    //
+    //     /// Calculates the distance from ByteString to a given string.
+    //     member a.distance (b : string) = (a, toByteString b) ||> distance
+    //
+    //     member a.normalizedDistance (b : string) = (a, toByteString b) ||> normalizedDistance
 
     //======================================
     // End of interop.

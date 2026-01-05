@@ -6,8 +6,36 @@
 
 open System.Collections
 open System.Collections.Generic
-open FSharpx
-open FSharpx.Collections
+
+open System.Text
+// open FSharpx
+// open FSharpx.Collections
+
+
+type ByteString = string
+
+
+[<RequireQualifiedAccess>]
+module ByteString =
+
+    let empty : ByteString = ""
+
+    let inline length (s: ByteString) = s.Length
+
+    let inline isEmpty (s: ByteString) = s.Length = 0
+
+    let inline item (i: int) (s: ByteString) = s[i]          // char
+
+    let inline sub (start: int) (count: int) (s: ByteString) = s.Substring(start, count)
+
+    let inline ofString (s: string) : ByteString = s
+
+    let inline toString (s: ByteString) : string = s
+
+    let inline toList (s: ByteString) = s.ToCharArray() |> List.ofArray
+
+    let inline create (b : byte[]) : ByteString = Encoding.ASCII.GetString(b)
+
 
 // Ported from http://hackage.haskell.org/packages/archive/bktrees/latest/doc/html/src/Data-Set-BKTree.html
 

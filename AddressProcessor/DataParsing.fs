@@ -1,5 +1,6 @@
 ﻿namespace Softellect.AddressProcessor
 
+open System.Text.Json
 open Microsoft.FSharp.Collections
 open FSharp.Collections.ParallelSeq
 open StringParser
@@ -10,7 +11,7 @@ open UnionFactories
 open Extensions
 open Errors
 open Configuration
-open Newtonsoft.Json
+// open Newtonsoft.Json
 
 open Microsoft.Data.SqlClient
 
@@ -279,7 +280,8 @@ module DataParsing =
             | Some r ->
                 match r.SettingVersion = settingVersion with
                 | true ->
-                    let a = r.SettingJson |> JsonConvert.DeserializeObject<'T>
+                    // let a = r.SettingJson |> JsonConvert.DeserializeObject<'T>
+                    let a = JsonSerializer.Deserialize<'T>(r.SettingJson)
                     a |> Some |> Ok
                 | false -> { currentVersion = settingVersion; databaseVersion = r.SettingVersion } |> InvalidVersionNumberErr |> toSettingError
             | None -> Ok None
@@ -304,7 +306,8 @@ module DataParsing =
             use data = conn?<<cmdText
             data?AddressProcessorSettingId <- settingId
             data?settingVersion <- settingVersion
-            data?settingJson <- q |> JsonConvert.SerializeObject
+            // data?settingJson <- q |> JsonConvert.SerializeObject
+            data?settingJson <- JsonSerializer.Serialize(q)
             let result = data.ExecuteNonQuery()
 
             match result = 1 with

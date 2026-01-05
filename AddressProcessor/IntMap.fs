@@ -9,7 +9,20 @@
 
 open System.Collections
 open System.Collections.Generic
-open FSharpx.Collections
+// open FSharpx.Collections
+
+module List =
+    let inline cons x xs = x :: xs
+
+
+    let mapAccum (f : 'state -> 'a -> 'state * 'b) (state : 'state) (xs : 'a list) =
+        let rec loop s acc = function
+            | [] -> s, List.rev acc
+            | x :: xs ->
+                let s', y = f s x
+                loop s' (y :: acc) xs
+        loop state [] xs
+
 
 #nowarn "25"
 
